@@ -1,4 +1,6 @@
 <head>
+  <title>Bowling Score Card </title>
+  <link rel="stylesheet" href="../css/style.css">
   <script src="jquery-3.3.1.js"></script>
   <script src="app.js"></script>
 </head>
@@ -6,8 +8,76 @@
 <h1> Bowling Score Card </h1>
 
 <body>
-  <form>
+  <div name="nameForm" id="nameForm">
     <input id="name" type="text" name="name" placeholder="Name">
-    <input id="submit name" type="submit" name="submit">
-  </form>
+    <button onclick="addPlayer()">Add Player</button>
+    <button onclick="deletePlayer()">Delete Player</button>
+  </div>
+  <div name="score" id="score">
+    <h4> Pins Hit </h4>
+    <select id='pins'>
+      <option>0</option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
+    <button onclick="addPins()"> Submit Hit Pins</button>
+    <!-- <button id="0" type="button" value='0'>0</button>
+    <button id="1" type="button" value='1'>1</button>
+    <button id="2" type="button" value='2'>2</button>
+    <button id="3" type="button" value='3'>3</button>
+    <button id="4" type="button" value='4'>4</button>
+    <button id="5" type="button" value='5'>5</button>
+    <button id="6" type="button" value='6'>6</button>
+    <button id="7" type="button" value='7'>7</button>
+    <button id="8" type="button" value='8'>8</button>
+    <button id="9" type="button" value='9'>9</button>
+    <button id="10" type="button" value='10'>10</button> -->
+  </div>
+  <div style="overflow-x:auto;">
+    <table id="scoreCard" frame="box">
+      <tr>
+        <th id="players" name='players'> Players </th>
+        <th id="frames" name='frames'> Frames </th>
+        <th id="one" name='one'> 1 </th>
+        <th id="two" name='two'> 2 </th>
+        <th id="three" name='three'> 3 </th>
+        <th id="four" name='four'> 4 </th>
+        <th id="five" name='five'> 5 </th>
+        <th id="six" name='six'> 6 </th>
+        <th id="seven" name='seven'> 7 </th>
+        <th id="eight" name='eight'> 8 </th>
+        <th id="nine" name='nime'> 9 </th>
+        <th id="ten" name='ten'> 10 </th>
+      </tr>
+    </table>
+    <br>
+  </div>
+
+  <script>
+  function addPlayer() {
+      var table = document.getElementById("scoreCard");
+      var name = document.getElementById('name').value;
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      cell1.innerHTML = name;
+      row.setAttribute("id", name, 0)
+  }
+
+  function deletePlayer() {
+      document.getElementById("scoreCard").deleteRow(1);
+  }
+
+  function addPins() {
+      var table = document.getElementById("scoreCard");
+      var pins = document.getElementById("pins").multiple;
+  }
+  </script>
 </body>
