@@ -2,7 +2,7 @@
   <title>Bowling Score Card </title>
   <link rel="stylesheet" href="../css/style.css">
   <script src="../jquery-3.3.1.js"></script>
-  <script src="../app.js"></script>
+  <script src="../src/scoreCard.js"></script>
 </head>
 
 <h1> Bowling Score Card </h1>
@@ -65,17 +65,6 @@
   </div>
 
   <script>
-  function currentPlayer(player) {
-    var players = [];
-    var i = 0;
-    players.push(player);
-    return players[i];
-  }
-
-  currentPlayer.prototype.nextPlayer = function () {
-    i++;
-  }
-
   function addPlayer() {
       var table = document.getElementById("scoreCard");
       var name = document.getElementById('name').value;
@@ -83,7 +72,6 @@
       var cell1 = row.insertCell(0);
       cell1.innerHTML = name;
       row.setAttribute("id", name, 0);
-      currentPlayer(name);
   }
 
   function deletePlayer() {
