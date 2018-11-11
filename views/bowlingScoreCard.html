@@ -1,8 +1,8 @@
 <head>
   <title>Bowling Score Card </title>
   <link rel="stylesheet" href="../css/style.css">
-  <script src="jquery-3.3.1.js"></script>
-  <script src="app.js"></script>
+  <script src="../jquery-3.3.1.js"></script>
+  <script src="../app.js"></script>
 </head>
 
 <h1> Bowling Score Card </h1>
@@ -41,6 +41,9 @@
     <button id="9" type="button" value='9'>9</button>
     <button id="10" type="button" value='10'>10</button> -->
   </div>
+  <div>
+
+  </div>
   <div style="overflow-x:auto;">
     <table id="scoreCard" frame="box">
       <tr>
@@ -62,13 +65,25 @@
   </div>
 
   <script>
+  function currentPlayer(player) {
+    var players = [];
+    var i = 0;
+    players.push(player);
+    return players[i];
+  }
+
+  currentPlayer.prototype.nextPlayer = function () {
+    i++;
+  }
+
   function addPlayer() {
       var table = document.getElementById("scoreCard");
       var name = document.getElementById('name').value;
       var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
       cell1.innerHTML = name;
-      row.setAttribute("id", name, 0)
+      row.setAttribute("id", name, 0);
+      currentPlayer(name);
   }
 
   function deletePlayer() {
